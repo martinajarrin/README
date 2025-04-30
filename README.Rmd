@@ -1,0 +1,154 @@
+---
+title: "Comparing the Global Prevalence of Eating Disorders by Colonial History"
+author: "Martina Jarrin"
+date: "(`r format(Sys.time(), '%d %B, %Y')`)"
+output:
+  html_document:
+      toc: true
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r data, inlcude = FALSE}
+library(tidyverse)
+library(cleangeo)
+library(kableExtra)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+library(viridis)
+
+Mental_health_disorder_Data <- read.csv("~/Downloads/Mental health Depression disorder Data.csv", stringsAsFactors = FALSE)
+Eating_Disorders_By_Country_Year <- read.csv("~/Downloads/Eating_Disorders_Table1_By_Country_Year.csv", stringsAsFactors = FALSE)
+Average_ED <- read.csv("~/Downloads/Average_ED_1990_2017.csv", stringsAsFactors = FALSE)
+Eating_Disorders_Colonial_Flags <- read.csv("~/Downloads/Updated_Eating_Disorders_British_Colonized.csv", stringsAsFactors = FALSE)
+
+table_1 <- Mental_health_disorder_Data[1:6468, ]
+table_2 <- Mental_health_disorder_Data[6469:54276, ]
+table_3 <- Mental_health_disorder_Data[54277:102084, ]
+table_4 <- Mental_health_disorder_Data[102085:nrow(Mental_health_disorder_Data), ]
+
+Mental_health_disorder_Data <- Mental_health_disorder_Data %>%
+  rename(
+    country = Entity,
+    country_code = Code,
+    year = Year,
+    schizophrenia = `Schizophrenia....`,
+    bipolar = `Bipolar.disorder....`,
+    eating = `Eating.disorders....`,
+    anxiety = `Anxiety.disorders....`,
+    drug_use = `Drug.use.disorders....`,
+    depression = `Depression....`,
+    alcohol_use = `Alcohol.use.disorders....`
+  )
+
+Eating_Disorders_Colonial_Flags <- Eating_Disorders_Colonial_Flags %>%
+  rename(
+    country = `Entity`
+  )
+
+Eating_Disorders_By_Country_Year <- Eating_Disorders_By_Country_Year[-c(5,6,12,38,40,41,43,43,44,62,63,64,90,91,92,93,113,120,121,135,149,150,155,190,191,192,193,196,211,228),]
+
+Average_ED <- Average_ED[-c(5,6,12,38,40,41,43,43,44,62,63,64,90,91,92,93,113,120,121,135,149,150,155,190,191,192,193,196,211,228),]
+
+colnames(Eating_Disorders_By_Country_Year)
+
+names(Eating_Disorders_By_Country_Year)[names(Eating_Disorders_By_Country_Year) == "Entity"] <- "country"
+
+names(Average_ED)[names(Average_ED) == "Entity"] <- "country"
+```
+## Introduction
+
+Eating disorders are a family of clinical diagnoses in the DSM-5 that are distinguished by a significant and persistent “disturbance” in eating patterns (Attia and Walsh, 2025, p. 1243) With etiological research demonstrating a lifetime prevalence of 2% to 5%, the conditions are more common among females than males. They are known to have psychiatric and physiological implications that manifest in various forms, each differentiated by the behavioral and physiological behaviors they induce (p. 1243). The most prominently recognized are anorexia nervosa, bulimia nervosa, binge-eating disorder, and avoidant/restrictive food intake disorder (ARFID). Anorexia nervosa symptoms consist of restricted caloric intake and a BMI under 18.5 kg in adults and 17 kg in children, and present themselves as a “restricting subtype” or a “binge-eating/purging subtype” (p.1243). AN (Anorexia Nervosa) induces an acute fear of weight gain, along with a plethora of physiological issues such as (e.g., bradycardia, hypotension, electrolyte abnormalities, disturbances in reproductive hormones, and decreased bone density) (p. 1242). Contrastingly, BN (Bulimia Nervosa) is marked by cycles of bingeing and purging behavior such as “self-induced vomiting; misuse of diuretics, laxatives, or weight loss medications; and excessive exercise” (p. 1245). Binge-eating disorder consists of only the bingeing component and lacks the purging aspect; instead, it results in consistent episodes of extreme over-eating. Individuals with binge-eating disorder also do not engage in unhealthy behaviors to avoid weight gain (p.1245). An increasingly recognized condition is ARFID, which comprises restrictive eating that is unrelated to body image preoccupation. Aversion to eating revolves around the foods’ color or texture, resulting in reactionary behavior such as choking, vomiting, or a lack of eating (p. 1245).
+
+## Data
+
+My intention was to examine if ED distributions correlate at all with the colonial history of a country.
+
+I took my data from a Kaggle dataset that displayed global trends in mental health disorders (e.g. depression, anxiety, schizophrenia) using statistics provided by  https://ourworldindata.org/. I specifically chose to focus on the eating disorder column distribution. I cleaned this data by removing non country rows.
+
+Due to the large variety of countries provided in the Kaggle dataset, I thought it would be worth examining the colonial histories of each country to uncover any potential correlations between colonialism and ED distribution.
+
+With this goal in mind, I took more data from another data set labeled 'The Authoritarian Regime Data set.' This data was provided by researchers at the the Quality of Government (QoG) Institute at the University of Gothenburg. This data set explicitly focused on 'Western Overseas Colonialism,' with the data only reflecting Western colonizers and countries located in the non-Western Hemisphere. 
+
+For the purpose of visual analysis, I merged the Kaggle and QoG data set to form a new table containing the country name, whether or not it was colonized, the country it was colonized by, and the eating disorder percentage by year.
+
+The merged table:
+
+```{r tables}
+
+kable(Average_ED)
+
+```
+
+### Data Analysis
+
+```{r meeting-parametric-assumptoms}
+
+```
+
+```{r box-plot-edpct-by-colonial-status}
+ggplot(Eating_Disorders_Colonial_Flags, aes(x = was_colonized, y = eating_disorder_pct)) +
+  geom_boxplot(fill = "skyblue") +
+  labs(title = "Eating Disorder % by Colonial History", x = "Was Colonized", y = "Eating Disorder (%)")
+```
+
+```{r world-map-ed-prevalence}
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+world_ed <- world %>%
+  left_join(Average_ED, by = c("name" = "country"))
+
+head(world_ed)
+
+ggplot(world_ed) +
+  geom_sf(aes(fill = eating_disorder_pct), color = "gray30", size = 0.1) +
+  scale_fill_viridis(name = "Avg ED (%)", na.value = "lightgray") +
+  labs(
+    title = "Average Eating Disorder Prevalence (1990–2017)",
+    caption = "Data: Average_ED_1990_2017.csv + Natural Earth"
+  ) +
+  theme_minimal()
+```
+
+```{r edpct-time-trends-colonial-status, warning = FALSE}
+Eating_Disorders_Colonial_Flags <- Eating_Disorders_Colonial_Flags %>%
+  filter(!is.na(eating_disorder_pct), !is.na(was_colonized), !is.na(year)) %>%
+  group_by(year, was_colonized) %>%
+  summarise(avg_ed = mean(eating_disorder_pct, na.rm = TRUE), .groups = "drop")
+
+ggplot(Eating_Disorders_Colonial_Flags, aes(x = year, y = avg_ed, color = was_colonized)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 1.8, alpha = 0.7) +
+  labs(
+    title = "Trends in Eating Disorder Prevalence (1990–2017)",
+    subtitle = "Grouped by Colonial Status",
+    x = "Year",
+    y = "Average Eating Disorder Prevalence (%)",
+    color = "Was Colonized"
+  ) +
+  theme_minimal()
+```
+
+### Assumptions tests
+```{r stats-tests}
+car::leveneTest(eating_disorder_pct ~ was_colonized, data = Average_ED)
+
+shapiro.test(residuals(lm(eating_disorder_pct ~ was_colonized, data = Average_ED)))
+```
+
+## Results
+
+### T-Test
+
+```{r}
+t.test(eating_disorder_pct ~ was_colonized, 
+       data = Average_ED, 
+       var.equal = FALSE)
+```
+
+### Linear Regression: ED Prevalence ~ Colonial History & Year
+
+
