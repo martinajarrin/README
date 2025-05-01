@@ -1,0 +1,156 @@
+Entity,was_colonized,colonizer,eating_disorder_pct
+Afghanistan,False,Never colonized,0.09426107142857143
+Albania,False,Never colonized,0.14522971428571427
+Algeria,True,French,0.19448782142857143
+Andorra,False,Never colonized,0.6214800714285714
+Angola,True,Portuguese,0.14418439285714285
+Antigua and Barbuda,True,British,0.33245782142857144
+Argentina,True,Spanish,0.36531814285714287
+Armenia,False,Never colonized,0.14063478571428573
+Australia,True,British,0.8382704285714286
+Austria,False,Never colonized,0.6224523571428572
+Azerbaijan,False,Never colonized,0.16334692857142857
+Bahrain,True,British,0.2556731071428571
+Bangladesh,True,British,0.11430760714285715
+Barbados,True,British,0.3187073571428572
+Belarus,False,Never colonized,0.17798517857142857
+Belgium,False,Never colonized,0.5617037857142857
+Belize,True,British,0.24123807142857143
+Benin,True,French,0.11279217857142856
+Bhutan,True,British,0.14139610714285714
+Bosnia and Herzegovina,False,Never colonized,0.13786275
+Botswana,True,British,0.19971603571428573
+Brazil,True,Portuguese,0.25155003571428575
+Bulgaria,False,Never colonized,0.17818764285714286
+Burkina Faso,True,French,0.10144257142857142
+Burundi,True,Belgian,0.08980267857142857
+Cambodia,True,French,0.08886492857142857
+Cameroon,True,French,0.12807328571428572
+Canada,True,British,0.45837150000000004
+Chad,True,French,0.10950096428571429
+Chile,True,Spanish,0.3590085714285714
+China,False,Never colonized,0.11571507142857143
+Colombia,True,Spanish,0.22621332142857145
+Costa Rica,True,Spanish,0.255618
+Cote d'Ivoire,True,French,0.1288295357142857
+Croatia,False,Never colonized,0.1985289285714286
+Cuba,True,Spanish,0.23287982142857144
+Cyprus,True,British,0.4761192142857143
+Denmark,False,Never colonized,0.5163531428571428
+Djibouti,True,French,0.12783907142857143
+Dominica,True,British,0.2559627857142857
+Ecuador,True,Spanish,0.3211606785714286
+Egypt,True,British,0.16745285714285713
+El Salvador,True,Spanish,0.21289342857142857
+Equatorial Guinea,True,Spanish,0.19595010714285713
+Eritrea,True,British,0.099982
+Estonia,False,Never colonized,0.23115014285714283
+Ethiopia,False,Never colonized,0.08630625
+Fiji,True,British,0.13656328571428572
+Finland,False,Never colonized,0.5685834285714286
+France,False,Never colonized,0.5395304642857143
+Gabon,True,French,0.21985760714285713
+Georgia,False,Never colonized,0.14826589285714284
+Germany,False,Never colonized,0.4962721785714286
+Ghana,True,British,0.1267172857142857
+Greece,False,Never colonized,0.5422774642857143
+Grenada,True,British,0.25879378571428574
+Guatemala,True,Spanish,0.21510907142857144
+Guinea,True,French,0.10882035714285714
+Guinea-Bissau,True,Portuguese,0.1086355
+Guyana,True,British,0.20589992857142855
+Haiti,True,French,0.15850192857142859
+Honduras,True,Spanish,0.18657285714285712
+Hungary,False,Never colonized,0.2138124285714286
+Iceland,False,Never colonized,0.5204414285714286
+India,True,British,0.12482203571428571
+Indonesia,True,Dutch,0.12425139285714284
+Iraq,True,British,0.17751592857142856
+Ireland,True,British,0.47748500000000005
+Israel,True,British,0.41613014285714284
+Italy,False,Never colonized,0.6181293571428571
+Jamaica,True,British,0.2515060714285714
+Japan,False,Never colonized,0.44765282142857143
+Jordan,True,British,0.1712634642857143
+Kazakhstan,False,Never colonized,0.19180542857142857
+Kenya,True,British,0.12466139285714285
+Kiribati,True,British,0.0928915
+Kuwait,True,British,0.31600225
+Kyrgyzstan,False,Never colonized,0.1245247142857143
+Latvia,False,Never colonized,0.19707175000000002
+Lebanon,True,French,0.19968092857142855
+Lesotho,True,British,0.12050475000000001
+Liberia,False,Never colonized,0.08465478571428572
+Libya,True,Italian,0.23468899999999998
+Lithuania,False,Never colonized,0.19763110714285714
+Luxembourg,False,Never colonized,0.6861691785714286
+Madagascar,True,French,0.10359217857142856
+Malawi,True,British,0.0946815
+Malaysia,True,British,0.1740345357142857
+Maldives,True,British,0.13953260714285715
+Mali,True,French,0.10709592857142858
+Malta,False,Never colonized,0.45848114285714286
+Marshall Islands,True,US,0.10690471428571428
+Mauritania,True,French,0.13297753571428572
+Mauritius,True,British,0.15862592857142857
+Mexico,True,Spanish,0.30270125000000003
+Mongolia,False,Never colonized,0.14656339285714284
+Montenegro,False,Never colonized,0.17411375
+Morocco,True,French,0.15453639285714285
+Mozambique,True,Portuguese,0.08696928571428572
+Myanmar,True,British,0.09200360714285714
+Namibia,True,British,0.17750960714285716
+Nepal,False,Never colonized,0.11012392857142858
+New Zealand,True,British,0.6432345714285714
+Nicaragua,True,Spanish,0.18759807142857143
+Nigeria,True,British,0.1344495
+Norway,False,Never colonized,0.5562824642857143
+Oman,True,British,0.24361039285714287
+Pakistan,True,British,0.13759875
+Panama,True,Spanish,0.2637862142857143
+Papua New Guinea,True,Australian,0.09700635714285714
+Paraguay,True,Spanish,0.21553732142857143
+Peru,True,Spanish,0.3297645357142857
+Poland,False,Never colonized,0.19415467857142857
+Portugal,False,Never colonized,0.4715592857142857
+Qatar,True,British,0.3032828928571428
+Romania,False,Never colonized,0.17092960714285715
+Rwanda,True,Belgian,0.09905814285714286
+Saint Lucia,True,British,0.27221589285714287
+Saint Vincent and the Grenadines,True,British,0.24830307142857144
+Samoa,True,British,0.11693382142857144
+Sao Tome and Principe,True,Portuguese,0.12280453571428572
+Saudi Arabia,False,Never colonized,0.26238975
+Senegal,True,French,0.11876917857142857
+Serbia,False,Never colonized,0.16622896428571426
+Seychelles,True,British,0.17901542857142855
+Sierra Leone,True,British,0.10416092857142857
+Singapore,True,British,0.46303524999999995
+Slovakia,False,Never colonized,0.203181
+Slovenia,False,Never colonized,0.22076717857142855
+Solomon Islands,True,British,0.0897704642857143
+Somalia,True,Italian,0.07828717857142857
+South Africa,True,British,0.20239035714285714
+South Sudan,True,British,0.13125864285714287
+Spain,False,Never colonized,0.6646372857142857
+Sri Lanka,True,British,0.12826425
+Sudan,True,British,0.12490646428571428
+Suriname,True,Dutch,0.2715047857142857
+Sweden,False,Never colonized,0.5190086785714285
+Switzerland,False,Never colonized,0.5521625
+Tajikistan,False,Never colonized,0.11242364285714286
+Thailand,False,Never colonized,0.14930657142857143
+Togo,True,French,0.10494014285714286
+Tonga,True,British,0.11940696428571429
+Trinidad and Tobago,True,British,0.33255375000000004
+Tunisia,True,French,0.17768735714285716
+Turkey,False,Never colonized,0.25627357142857143
+Turkmenistan,False,Never colonized,0.16280853571428572
+Uganda,True,British,0.10358885714285715
+Ukraine,False,Never colonized,0.16150453571428572
+Uruguay,True,Spanish,0.35308771428571434
+Uzbekistan,False,Never colonized,0.13205953571428572
+Vanuatu,True,British-French,0.1021674642857143
+Yemen,True,British,0.12969710714285715
+Zambia,True,British,0.1235594642857143
+Zimbabwe,True,British,0.13100207142857143
